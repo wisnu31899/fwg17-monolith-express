@@ -36,8 +36,11 @@ exports.deleteUser = async(id)=>{
 }
 
 exports.insertUser = async(data)=>{
-    const sql = `INSERT INTO users (full_name, email, password) 
-    VALUES ($1, $2, $3)
+    const sql = `
+    INSERT INTO users
+    (full_name, email, password)
+    VALUES
+    ($1, $2, $3)
     RETURNING *`
     const values = [data.full_name, data.email, data.password]
     const {rows} = await db.query(sql, values)

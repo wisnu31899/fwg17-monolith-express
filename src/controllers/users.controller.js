@@ -27,7 +27,7 @@ exports.deleteUser = async (req, res)=>{
 }
 
 exports.insertUser = async (req, res)=>{
-    const users = await userModel.insertUser(req.body)
+    await userModel.insertUser(req.body)
     console.log(req.body)
     return res.redirect("/users")
 }

@@ -1,16 +1,16 @@
-const router = require('express').Router()
-
 const userController = require('../controllers/users.controller')
+const router = require('express').Router()
 
 router.get('/', (req, res)=>{
     return res.render('index', {title:null})
 })
 
-router.get('/addNew', (req, res)=>{
-    return res.render('users/addNew', {title: "Add New User"})
-})
-
 router.use('/users', require('./users.router'))
+
+router.get('/insert-user', (req, res)=>{
+    return res.render('users/insert', {title: "insert"})
+})
+router.post('/insert-user', userController.insertUser)
 
 router.get('/about-us', (req, res)=>{
     return res.render('about-us', {title: "About Us"})
