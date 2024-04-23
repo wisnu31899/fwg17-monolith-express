@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  webapp:
+    build: .
+    ports:
+      - 5050:8888
+    volumes:
+      - ./src:/app/src
+      - ./index.js:/app/index.js
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=1
+      - TZ=Asia/Jakarta
+    volumes:
+      - ./base.sql:/docker-entrypoint-initdb.d/base.sql

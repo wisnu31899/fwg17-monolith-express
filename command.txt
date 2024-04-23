@@ -1,0 +1,7 @@
+docker compose up --build
+
+docker compose down
+
+docker run -e POSTGRES_PASSWORD=1 -e TZ=Asia/Jakarta -v ./base.sql:/docker-entrypoint-initdb.d/base.sql -p 5432:5432 -d postgres
+
+npm init @eslint/config
